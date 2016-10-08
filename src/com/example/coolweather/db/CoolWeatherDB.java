@@ -22,7 +22,7 @@ public class CoolWeatherDB {
 	/**
 	 * Êý¾Ý¿â°æ±¾
 	 */
-	public static final int VERSION = 1;
+	public static final int VERSION =1;
 
 	private static CoolWeatherDB coolWeatherDB;
 
