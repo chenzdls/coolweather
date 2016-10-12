@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.coolweather.R;
+import com.example.coolweather.service.AutoUpdateService;
 import com.example.coolweather.util.HttpCallbackListener;
 import com.example.coolweather.util.HttpUtil;
 import com.example.coolweather.util.Utility;
@@ -80,7 +81,7 @@ public class WeatherActivity extends Activity implements OnClickListener {
 	 * 根据代号再去查询天气信息
 	 */
 	private void queryWeatherInfo(String weatherCode) {
-		/*Log.d("WeatherActivity", "进入queryWeatherInfo()方法");*/
+		/* Log.d("WeatherActivity", "进入queryWeatherInfo()方法"); */
 		String address = "http://www.weather.com.cn/data/cityinfo/"
 				+ weatherCode + ".html";
 		queryFromServer(address, "weatherCode");
@@ -155,6 +156,8 @@ public class WeatherActivity extends Activity implements OnClickListener {
 		currentDateText.setText(prefs.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		Intent intent = new Intent(this, AutoUpdateService.class);
+		startService(intent);
 
 	}
 
